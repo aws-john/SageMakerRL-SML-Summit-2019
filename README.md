@@ -3,125 +3,84 @@
 --
 **Authors :** Paul Conyngham & William Xu | StarAi Project Machine Learning Engineers - | Email : contact@starai.com
 
-&nbsp;
+This lab is provided as part of [Dev Day Online](https://github.com/aws-john/dev-day-labs).
+
+ℹ️ You will run this lab in your own AWS account. Please follow directions at the end of the lab to remove resources to minimize costs.
 
 ![DQN BREAKOUT](https://cdn-images-1.medium.com/max/1200/1*XyIpmXXAjbXerDzmGQL1yA.gif)
 
-&nbsp;
-
-This workshop shows you how, using AWS, you can parallelise the training of your reinforcement learning algorithms to get insanely fast turn around times & results for your reinforcement learning experiments.
+This workshop shows you how, using AWS, you can parallelise the training of your reinforcement learning algorithms to get insanely fast turn around times and results for your reinforcement learning experiments.
 
 # Instructions
 
-## Step 0 - Cloud Formation Installation
+## Setup: Launch AWS CloudFormation Stack
 
-Click the "launch stack" button below to deploy your SageMaker RL stack. This will take you to the AWS console to setup the stack for this lab. Continue following the instructions here in order to complete the setup.
+You will use AWS CloudFormation to deploy Amazon SageMaker in your AWS account. It will be deployed in the us-east-1 (N. Virginia) region. Please ensure you follow directions at the end of the lab to delete the CloudFormation stack to remove resources.
 
-Or optionally scroll down for the command to launch the lab via a single command in the AWS Command Line Interface.
+**1.** Login to your AWS account.
 
-&nbsp;
+**2.** Right-click this link and open in a new browser tab: [Launch Stack into us-east-1 with CloudFormation](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=SageMakerRLLabSummitSydney2019&templateURL=https://s3-ap-southeast-2.amazonaws.com/aws-summit-2019-rl/AWS-summit_RL-CloudFormation.yml)
 
-[![Launch Stack into us-east-1 with CloudFormation](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=SageMakerRLLabSummitSydney2019&templateURL=https://s3-ap-southeast-2.amazonaws.com/aws-summit-2019-rl/AWS-summit_RL-CloudFormation.yml)
+The CloudFormation console will be displayed, with some information already entered.
 
-&nbsp;
+**3.** Click **Next** three times.
 
-
-1. Step 1 of cloud formation is to specify a template. Do not change any of the settings here. Scroll down to the bottom of the page and click the orange "Next" button
-
-&nbsp;
-
-
-![orange next button](images/orangeNextButton.png)
-
-&nbsp;
-
-
-2. Step 2 of cloud formation is to specify stack details. Same as before scroll down to the bottom of the page and click the orange "Next" button.
-3. Step 3 is to configure stack options. Again, scroll to the bottom of the page and click Next.
-
-&nbsp;
-
-4. Step 4 is "Review". Scroll to the bottom of the page. This time click the "I acknowledge the AWS CloudFormation might create IAM resources check box". Once you the box is ticked please click the orange "Create Stack Button"
-
-&nbsp;
+**4.** At the bottom of the page, select "I acknowledge that AWS CloudFormation might create IAM resources".
 
 ![create stack](images/CreateStack.png)
 
-&nbsp;
+**5.** Click **Create stack**.
 
-or if you have the Amazon Command Line Interface installed, setting up this lab is as easy as running the following command in your terminal:
+This will launch an Amazon SageMaker notebook instance.
 
-`aws cloudformation create-stack --stack-name awsRLSummit2019 --template-body https://s3-ap-southeast-2.amazonaws.com/aws-summit-2019-rl/AWS-summit_RL-CloudFormation.yml --capabilities CAPABILITY_IAM`
+## Access SageMaker
 
-&nbsp;
-
-## Step 1 - Login to Sagemaker
-&nbsp;
 ![aws console](images/awsconsole2.png)
 
-&nbsp;
+**6.** In the **Services** menu, select **SageMaker**.
 
-1. Login to AWS Console
-2. Click "Find Services"
-3. Type "SageMaker" and hit enter
-
-
-
-
-## Step 2 - open our Notebook instance
-
-&nbsp;
-
-
-1. On the left menu under the "Notebook" section, click "Notebook instances"
-
-&nbsp;
-&nbsp;
+**7.** In the left menu under **Notebook**, click **Notebook instances**.
 
 ![menu](images/awssagemakerhome.png)
 
-&nbsp;
-
-2. Next to our instance named "BasicNotebookInstance" there is a link called "open Jupyter", click it.
-
-&nbsp;
-&nbsp;
+**8.** In the line for **BasicNotebookInstance**, click **Open Jupyter**.
 
 ![menu](images/openjupyter.png)
 
-&nbsp;
+A new tab will open, showing the jupyter notebook.
 
-3. A new tab will launch taking you to a jupyter notebook. Once this has finished loading, click the link titled "Summit-RL"
-
-&nbsp;
+**9.** Click **Summit-RL**.
 
 ![menu](images/summitRlLink.png)
 
-&nbsp;
+Wait for the page to fully load.
 
-
-4. Clicking the link will take you to a new directory. Click the file titled **"Sagemaker_RL_Lab_Summit_2019_One_Click.ipynb"**.
-
-&nbsp;
-
+**10.** Click **Sagemaker_RL_Lab_Summit_2019_One_Click.ipynb**.
 
 ![menu](images/inJupyter.png)
 
-&nbsp;
+A new browser tab will open and launch a Jupyter notebook.
 
-5. A new browser tab should open and launch a Jupyter notebook. Once the notebook has finished loading, from the top menu click **kernel**, then click **restart and clear output**. Another pop up should appear. Click the red button titled "restart and clear all outputs".
+**11.** In the top-right, click **Not Trusted**, then click **Trust**.
 
-Your are now ready to get started with the lab!
+**12.** In the **Kernel** menu, click **Restart & Clear Output** and then click the red button that appears.
 
-&nbsp;
+You are now ready to get started with the lab!
 
 ![menu](images/restartKernel.png)
 
-&nbsp;
+In some rare cases, the Jupyter notebook might ask which kernel to use. If this happens, select _conda_tensorflow_p36_.
 
+The rest of the workshop continues in the Jupyter notebook. Follow the instructions there to continue to learn about distributed Reinforcement Learning with Sagemaker RL. **When the lab is finished, please use the instructions below to clean-up resources so that you stop charges being incurred.**
 
-Please note that in some rare cases the Jupyter notebook may give you a pop up asking which kernel to use. If this happens to you please select **"conda_tensorflow_p36"** as the kernel of choice.
+## Important: Clean-up
 
-&nbsp;
+When you have completed the lab, you must delete the CloudFormation stack as follows:
 
-The rest of the workshop continues in the Jupyter notebook. Follow the instructions there to continue to learn about distributed Reinforcement Learning with Sagemaker RL.
+**13.** Return to the AWS console and use the **Services** menu to go to **CloudFormation**.
+
+**14.** Select the CloudFormation stack (click the cirle).
+
+**15.** Click **Delete**.
+
+This will delete the stack and will stop charges being incurred in your AWS account.
