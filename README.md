@@ -83,7 +83,7 @@ At the end of the **Error** you will get a message as shown below:
 
 ![ResourceLimit](images/ResourceLimitError2.png)
 
-###Don't be disturb just follow these steps to resovle it:
+### Don't be disturb just follow these steps to resovle it:
 
 **i** Go to Support Dashboard in your AWS Console
 
@@ -110,7 +110,7 @@ I am doing the Hands-on lab of the AWS Innovate Online Conference, reinforcement
 
 **Support will check your case within few hours and get back to you with the Approved limit**
 
-###When the lab is finished, please use the instructions below to clean-up resources so that you stop charges being incurred.
+### When the lab is finished, please use the instructions below to clean-up resources so that you stop charges being incurred.
 
 ## Important: Clean-up
 
