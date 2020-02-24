@@ -71,7 +71,46 @@ You are now ready to get started with the lab!
 
 In some rare cases, the Jupyter notebook might ask which kernel to use. If this happens, select _conda_tensorflow_p36_.
 
-The rest of the workshop continues in the Jupyter notebook. Follow the instructions there to continue to learn about distributed Reinforcement Learning with Sagemaker RL. **When the lab is finished, please use the instructions below to clean-up resources so that you stop charges being incurred.**
+The rest of the workshop continues in the Jupyter notebook. Follow the instructions there to continue to learn about distributed Reinforcement Learning with Sagemaker RL. 
+
+## Note for those who just sign-up to AWS/ those using the Free-Tier Account
+
+You may get an **Error** when you run the first cell in the notebook as shown below:
+
+![ResourceLimit](images/ResourceLimitError1.png)
+
+At the end of the **Error** you will get a message as shown below:
+
+![ResourceLimit](images/ResourceLimitError2.png)
+
+### Don't be disturb just follow these steps to resovle it:
+
+**i** Go to Support Dashboard in your AWS Console
+
+**ii** Click **Create case**
+
+**iii** Select **Service limit increase**
+
+**iv** Limit type under Case classification Select **SageMaker**
+
+**v** Requests
+
+* [Region] - Select the region you want
+* [Resource Type] - Select **SageMaker Notebooks**
+* [Limit] - Select **ml.p3.8xlarge Instances**
+* [New limit value] - Select **between 3 - 5**
+
+**vi** Case description *Write a good description* like: 
+
+```
+I am doing the Hands-on lab of the AWS Innovate Online Conference, reinforcement learning. Running some of the code in the notebook, I got an error and was asked to contact support.
+```
+
+**vii** Contact options: Choose a preferred contact language and Contact methods, then click **Submit**
+
+**Support will check your case within few hours and get back to you with the Approved limit**
+
+### When the lab is finished, please use the instructions below to clean-up resources so that you stop charges being incurred.
 
 ## Important: Clean-up
 
